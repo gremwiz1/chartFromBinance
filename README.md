@@ -22,3 +22,16 @@
    ```bash
    git clone https://github.com/gremwiz1/chartFromBinance.git
    cd chartFromBinance
+
+2. Установите зависимости:
+    
+    ```bash
+    npm install
+
+3. Запустите приложение локально:
+
+    ```bash
+    npm start
+
+4. Перейдите по адресу http://localhost:3000 в браузере.
+
