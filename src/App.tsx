@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CandlestickChart from './components/candlestickChart';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    const [interval, setInterval] = useState<string>('1h'); // Состояние для выбора таймфрейма
+
+    return (
+        <div className="App">
+            <h1>Свечной график BTC/USDT</h1>
+            <div>
+                {/* Кнопки для изменения интервала отображения графика */}
+                <button onClick={() => setInterval('1h')}>1 час</button>
+                <button onClick={() => setInterval('5m')}>5 минут</button>
+            </div>
+            {/* Компонент графика с передачей выбранной пары и интервала */}
+            <CandlestickChart symbol="BTCUSDT" interval={interval} />
+        </div>
+    );
+};
 
 export default App;
